@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Panel, Slider, Button, Pill } from '../components/Panel.jsx'
 import { WaveCanvas } from '../simulations/WaveCanvas.jsx'
 import { WaveTypeAnimation } from '../simulations/WaveTypeAnimation.jsx'
+import { BodyWavesDiagram, HypocenterDiagram } from '../simulations/SeismicConceptDiagrams.jsx'
 import { WAVE_TYPES } from '../data/waveTypes.js'
 
 export function Waves() {
@@ -37,6 +38,18 @@ export function Waves() {
         <Button variant="secondary" onClick={() => setRunning((r) => !r)}>{running ? 'Pausar' : 'Reanudar'}</Button>
       </Panel>
 
+      <Panel eyebrow="VIAJE POR EL PLANETA" title="Ondas de cuerpo: P y S">
+        <p className="lead">Desde el hipocentro, las ondas P (primarias o compresionales) son las más rápidas y atraviesan sólidos y líquidos. Las ondas S (secundarias o de cizalla) se propagan solo en materiales sólidos; por eso se detienen al llegar al núcleo externo líquido.</p>
+        <BodyWavesDiagram />
+      </Panel>
+
+      <Panel eyebrow="SUPERFICIE" title="Epicentro: donde las ondas cambian de comportamiento">
+        <div className="epicenter-layout">
+          <HypocenterDiagram />
+          <p className="lead">El epicentro es la proyección vertical del hipocentro sobre la superficie. Allí llegan primero las ondas P y luego las S; al interactuar con la superficie se generan ondas Love, de movimiento horizontal, y Rayleigh, de movimiento elíptico. Por estar más cerca del foco, suele concentrar un sacudimiento intenso.</p>
+        </div>
+      </Panel>
+
       <Panel eyebrow="COMPARACIÓN" title="Tipos de ondas sísmicas">
         <div className="pill-row">
           {WAVE_TYPES.map((w) => (
@@ -69,6 +82,7 @@ export function Waves() {
         }
         .pill-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
         .wave-detail { display: grid; grid-template-columns: 1.3fr 1fr; gap: 16px; }
+        .epicenter-layout { display: grid; grid-template-columns: 1.1fr .9fr; gap: 16px; align-items: center; }
         .wave-info { background: var(--bg-1); border: 1px solid var(--line); border-radius: var(--radius-m); padding: 16px; }
         .wave-info h4 { margin-bottom: 10px; font-size: 15px; }
         .info-row { display: flex; justify-content: space-between; gap: 10px; font-size: 12.5px; color: var(--ink-1); padding: 7px 0; border-bottom: 1px solid var(--line-soft); }
@@ -76,7 +90,7 @@ export function Waves() {
 
         @media (max-width: 900px) {
           .controls-row { grid-template-columns: 1fr; }
-          .wave-detail { grid-template-columns: 1fr; }
+          .wave-detail, .epicenter-layout { grid-template-columns: 1fr; }
         }
       `}</style>
     </div>

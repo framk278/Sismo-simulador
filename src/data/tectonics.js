@@ -46,6 +46,42 @@ export const COLOMBIA_VENEZUELA = {
   },
 }
 
+// Eventos de referencia para la visualización educativa regional. Las marcas de
+// afectación son ciudades y municipios destacados, no un inventario exhaustivo.
+export const REGIONAL_EARTHQUAKES = {
+  colombia: {
+    title: 'Terremoto de San José del Palmar · 2026',
+    date: '10 de agosto de 2026',
+    magnitude: 'Mw 7.4',
+    center: [4.92, -76.35],
+    zoom: 8.3,
+    epicenter: { name: 'Epicentro · San José del Palmar, Chocó', lat: 4.99, lon: -76.29 },
+    affected: [
+      { name: 'Río Iró', lat: 5.18, lon: -76.48 },
+      { name: 'Nóvita', lat: 4.96, lon: -76.61 },
+      { name: 'Quibdó', lat: 5.69, lon: -76.66 },
+      { name: 'Cali', lat: 3.45, lon: -76.53 },
+    ],
+    note: 'El sismo se sintió ampliamente. El mapa destaca el epicentro, los municipios más próximos y ciudades con afectaciones reportadas.',
+  },
+  venezuela: {
+    title: 'Sismos del norte de Venezuela · 2026',
+    date: '24 de junio de 2026',
+    magnitude: 'Mw 7.2 y 7.5',
+    center: [10.5, -68.0],
+    zoom: 8.1,
+    epicenter: { name: 'Epicentro principal · al oeste de Catia La Mar', lat: 10.453, lon: -68.514 },
+    affected: [
+      { name: 'Caracas', lat: 10.48, lon: -66.90 },
+      { name: 'La Guaira', lat: 10.60, lon: -66.93 },
+      { name: 'Catia La Mar', lat: 10.61, lon: -67.03 },
+      { name: 'Puerto Cabello', lat: 10.47, lon: -68.01 },
+      { name: 'San Felipe', lat: 10.34, lon: -68.74 },
+    ],
+    note: 'Dos sismos consecutivos afectaron el norte del país. El mapa señala el evento principal y zonas con daños reportados.',
+  },
+}
+
 export const COLOMBIA_OUTLINE = [
   [-81.9, 12.4], [-81.2, 11.2], [-80.0, 11.2], [-78.6, 10.7], [-77.2, 10.5],
   [-76.0, 9.7], [-74.9, 8.4], [-73.8, 7.5], [-72.9, 6.6], [-72.2, 5.2],

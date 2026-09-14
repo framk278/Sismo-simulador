@@ -3,6 +3,8 @@ import { Panel, Pill, Button, StatChip } from '../components/Panel.jsx'
 import { SoilParticles } from '../simulations/SoilParticles.jsx'
 import { WaveCanvas } from '../simulations/WaveCanvas.jsx'
 import { SOILS, getSoil } from '../data/soils.js'
+import petBrickReference from '../assets/seismic-references/ladrillo de cemente.jpeg'
+import soilReference from '../assets/seismic-references/Tipos de suelo.jpeg'
 
 export function SiteEffects() {
   const [soilId, setSoilId] = useState('roca')
@@ -31,6 +33,23 @@ export function SiteEffects() {
           <StatChip label="Amplificación aprox." value={soil.amplification.toFixed(1)} unit="×" accent="amber" />
         </div>
         <p className="soil-desc">{soil.description}</p>
+        <figure className="reference-figure">
+          <img src={soilReference} alt="Infografía comparativa de suelo rocoso, arenoso, arcilloso y blando" />
+          <figcaption>Comparación visual de propiedades que modifican el viaje de las ondas en cada suelo.</figcaption>
+        </figure>
+      </Panel>
+
+      <Panel eyebrow="PROPUESTA" title="Alternativa para disipar ondas: ladrillo PET">
+        <div className="pet-layout">
+          <div>
+            <p className="lead">Como propuesta del proyecto, el ladrillo de PET puede explorarse como una alternativa de mampostería liviana con potencial para redistribuir vibraciones mediante su geometría, relleno y juntas.</p>
+            <p className="caption">Es una hipótesis educativa: su uso real exige ensayos de material, validación estructural y cumplimiento de la normativa aplicable.</p>
+          </div>
+          <figure className="reference-figure pet-reference">
+            <img src={petBrickReference} alt="Infografía sobre ladrillos de cemento con plástico reciclado" />
+            <figcaption>Referencia visual de la alternativa con plástico reciclado.</figcaption>
+          </figure>
+        </div>
       </Panel>
 
       <Panel
@@ -73,14 +92,19 @@ export function SiteEffects() {
         .pill-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
         .soil-stats { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
         .soil-desc { margin-top: 12px; font-size: 13px; color: var(--ink-1); }
+        .reference-figure { margin: 16px 0 0; }
+        .reference-figure img { width: 100%; display: block; border: 1px solid var(--line); border-radius: var(--radius-m); background: #fff; }
+        .reference-figure figcaption { margin-top: 6px; font-size: 11.5px; color: var(--ink-2); }
+        .pet-reference { margin: 0; }
         .chain { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 10px; align-items: center; }
+        .pet-layout { display: grid; grid-template-columns: .9fr 1.1fr; gap: 18px; align-items: center; }
         .chain-col { display: flex; flex-direction: column; gap: 6px; }
         .chain-label { font-size: 11.5px; color: var(--ink-2); font-family: var(--font-mono); }
         .chain-arrow { color: var(--ink-2); font-size: 20px; }
         .caption { font-size: 13px; color: var(--ink-1); margin-top: 14px; }
 
         @media (max-width: 900px) {
-          .chain { grid-template-columns: 1fr; }
+          .chain, .pet-layout { grid-template-columns: 1fr; }
           .chain-arrow { display: none; }
         }
       `}</style>

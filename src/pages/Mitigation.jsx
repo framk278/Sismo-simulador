@@ -6,6 +6,7 @@ import { STRUCTURAL_SYSTEMS } from '../data/structuralSystems.js'
 export function Mitigation() {
   const [floors, setFloors] = useState(5)
   const [excitationFreq, setExcitationFreq] = useState(1.5)
+  const [intensity, setIntensity] = useState(1)
   const [system, setSystem] = useState('convencional')
   const [running, setRunning] = useState(true)
 
@@ -34,11 +35,12 @@ export function Mitigation() {
             </Pill>
           ))}
         </div>
-        <StructureAnimation floors={floors} excitationFreq={excitationFreq} system={system} running={running} />
+        <StructureAnimation floors={floors} excitationFreq={excitationFreq} system={system} running={running} excitationIntensity={intensity} height={360} />
 
         <div className="controls-row">
           <Slider label="Número de pisos" value={floors} min={1} max={15} step={1} onChange={setFloors} />
           <Slider label="Frecuencia del sismo" value={excitationFreq} min={0.2} max={4} step={0.1} onChange={setExcitationFreq} unit=" Hz" accent="amber" />
+          <Slider label="Intensidad del sismo" value={intensity} min={0.2} max={3} step={0.1} onChange={setIntensity} unit="×" accent="amber" />
         </div>
 
         <div className="stats-row">
@@ -51,7 +53,9 @@ export function Mitigation() {
         <p className="caption">
           El color de las columnas se intensifica con la deriva de entrepiso. Los disipadores
           añaden amortiguamiento viscoso entre pisos; el aislamiento introduce un grado de libertad
-          flexible en la base (T1 ≈ 2,5 s).
+          flexible en la base (T1 ≈ 2,5 s). La <strong>intensidad</strong> controla cuánto se mueve
+          el modelo; la <strong>frecuencia</strong> permite explorar la resonancia, cuya respuesta
+          máxima aparece al acercarse a la frecuencia natural del edificio.
         </p>
       </Panel>
 
@@ -103,7 +107,7 @@ export function Mitigation() {
         .stack { display: flex; flex-direction: column; gap: 20px; }
         .lead { color: var(--ink-1); font-size: 13.5px; max-width: 70ch; }
         .pill-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
-        .controls-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 16px; }
+        .controls-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 16px; }
         .stats-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px; }
         .caption { font-size: 13px; color: var(--ink-1); margin-top: 14px; }
         .system-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
