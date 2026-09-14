@@ -1,0 +1,32 @@
+export const STRUCTURAL_SYSTEMS = [
+  {
+    id: 'convencional',
+    name: 'Sin aislamiento',
+    relativeCost: 1,
+    complexity: 'Baja',
+    reduction: 'Ninguna (referencia)',
+    pros: ['Menor costo inicial', 'Construcción convencional'],
+    cons: ['Mayor derivas de entrepiso', 'Mayor daño esperado en sismo fuerte'],
+    recommendedFor: 'Edificaciones de baja altura en zonas de sismicidad moderada, con diseño sismorresistente convencional.',
+  },
+  {
+    id: 'disipadores',
+    name: 'Con disipadores',
+    relativeCost: 2,
+    complexity: 'Media',
+    reduction: 'Moderada-alta',
+    pros: ['Reduce desplazamientos y aceleraciones', 'Compatible con estructuras existentes (reforzamiento)'],
+    cons: ['Costo y mantenimiento adicional', 'Requiere diseño especializado'],
+    recommendedFor: 'Edificios medios-altos, o reforzamiento de estructuras existentes en zonas de alta sismicidad.',
+  },
+  {
+    id: 'aislamiento',
+    name: 'Con aislamiento sísmico',
+    relativeCost: 3,
+    complexity: 'Alta',
+    reduction: 'Muy alta',
+    pros: ['Desacopla la estructura del movimiento del suelo', 'Protege contenido y funcionalidad post-sismo'],
+    cons: ['Mayor costo e ingeniería especializada', 'Menos eficaz en suelos muy blandos con periodos largos'],
+    recommendedFor: 'Hospitales, edificios esenciales y estructuras de baja-media altura sobre suelo firme a moderado.',
+  },
+]

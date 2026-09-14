@@ -1,0 +1,13 @@
+<svg width="220" height="72" viewBox="0 0 220 72" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Andina logo">
+  <defs>
+    <linearGradient id="andinaGradient" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#d7b07a"/>
+      <stop offset="100%" stop-color="#8fa3b2"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="60" height="60" rx="16" fill="#111a22" stroke="#3a434d" stroke-width="2"/>
+  <path d="M17 49L31 23L38 34L46 17L56 49H17Z" fill="url(#andinaGradient)"/>
+  <path d="M20 49H53L40 32L31 43L26 38L20 49Z" fill="#edf1f3" opacity="0.8"/>
+  <path d="M35 17L43 34H27L35 17Z" fill="#edf1f3"/>
+  <text x="78" y="45" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" letter-spacing="2" fill="#edf1f3">ANDINA</text>
+</svg>
