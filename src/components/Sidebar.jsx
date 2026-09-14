@@ -19,7 +19,6 @@ export function Sidebar({ current, onNavigate, open, onClose }) {
       {open && <div className="scrim" onClick={onClose} />}
       <nav className={`sidebar ${open ? 'open' : ''}`}>
         <div className="brand">
-          <img src="/andina logo.webp" alt="Andina logo" className="brand-mark" />
           <div>
             <div className="brand-name">Sismolab</div>
             <div className="brand-sub">Laboratorio virtual</div>
