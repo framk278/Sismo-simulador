@@ -5,11 +5,12 @@ const NAV = [
   { id: 'inicio', label: 'Inicio', icon: '01' },
   { id: 'tectonica', label: 'Contexto tectónico', icon: '02' },
   { id: 'suelo', label: 'Medios y efectos de sitio', icon: '03' },
-  { id: 'laboratorio', label: 'Laboratorio masa-resorte', icon: '04' },
-  { id: 'mitigacion', label: 'Mitigación estructural', icon: '05' },
-  { id: 'simulador', label: 'Simulador sísmico', icon: '06' },
-  { id: 'conclusiones', label: 'Conclusiones', icon: '07' },
-  { id: 'referencias', label: 'Referencias', icon: '08' },
+  { id: 'propuesta', label: 'Propuesta: ladrillo PET', icon: '04' },
+  { id: 'laboratorio', label: 'Laboratorio masa-resorte', icon: '05' },
+  { id: 'mitigacion', label: 'Mitigación estructural', icon: '06' },
+  { id: 'simulador', label: 'Simulador sísmico', icon: '07' },
+  { id: 'conclusiones', label: 'Conclusiones', icon: '08' },
+  { id: 'referencias', label: 'Referencias', icon: '09' },
 ]
 
 export function Sidebar({ current, onNavigate, open, onClose }) {

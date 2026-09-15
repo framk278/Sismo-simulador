@@ -5,6 +5,7 @@ import { Topbar } from './components/Topbar.jsx'
 import { Home } from './pages/Home.jsx'
 import { Tectonics } from './pages/Tectonics.jsx'
 import { SiteEffects } from './pages/SiteEffects.jsx'
+import { Proposal } from './pages/Proposal.jsx'
 import { Mitigation } from './pages/Mitigation.jsx'
 import { MassSpringLab } from './pages/MassSpringLab.jsx'
 import { SeismicSimulator } from './pages/SeismicSimulator.jsx'
@@ -15,6 +16,7 @@ const PAGE_META = {
   inicio: { title: 'Sismolab', subtitle: 'Laboratorio virtual de ingeniería sísmica' },
   tectonica: { title: 'Contexto tectónico', subtitle: 'De dónde proviene la energía sísmica' },
   suelo: { title: 'Medios y efectos de sitio', subtitle: 'El suelo transforma la señal sísmica' },
+  propuesta: { title: 'Propuesta: ladrillo PET', subtitle: 'Alternativa educativa para redistribuir vibraciones' },
   mitigacion: { title: 'Mitigación estructural', subtitle: 'Cómo responde una estructura y cómo controlarla' },
   laboratorio: { title: 'Laboratorio masa-resorte', subtitle: 'Mide período, frecuencia y amortiguamiento' },
   simulador: { title: 'Simulador sísmico', subtitle: 'Integra suelo, estructura y sistema de mitigación' },
@@ -39,6 +41,8 @@ function Shell() {
         return <Tectonics />
       case 'suelo':
         return <SiteEffects />
+      case 'propuesta':
+        return <Proposal />
       case 'mitigacion':
         return <Mitigation />
       case 'laboratorio':

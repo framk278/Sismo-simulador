@@ -4,7 +4,7 @@
 export const SOILS = [
   {
     id: 'roca',
-    label: 'Roca',
+    label: 'San José del Palmar (Roca Basáltica / GW)',
     description: 'Material rígido y muy compacto. Las ondas viajan rápido y con poca amplificación.',
     vs: 760, // m/s, aproximado (límite típico tipo B según clasificaciones NEHRP)
     density: 0.95, // relativo, 0-1
@@ -15,7 +15,7 @@ export const SOILS = [
   },
   {
     id: 'firme',
-    label: 'Suelo firme',
+    label: 'Valle de Caracas (Aluvión Sedimentario / CL-SC)',
     description: 'Suelo denso o roca blanda. Amplifica moderadamente la señal sísmica.',
     vs: 400,
     density: 0.75,
@@ -26,7 +26,7 @@ export const SOILS = [
   },
   {
     id: 'blando',
-    label: 'Suelo blando',
+    label: 'Cali (Limo-Arenoso / CL-SM) y La Guaira (Limos y Arenas / ML)',
     description: 'Depósito poco consolidado. Tiende a amplificar notablemente el movimiento.',
     vs: 200,
     density: 0.5,
@@ -37,7 +37,7 @@ export const SOILS = [
   },
   {
     id: 'muyblando',
-    label: 'Suelo muy blando',
+    label: 'Pereira / Eje Cafetero (Ceniza Volcánica / MH)',
     description: 'Sedimentos saturados y sueltos. Mayor riesgo de amplificación y resonancia.',
     vs: 120,
     density: 0.3,
