@@ -3,8 +3,7 @@ import { Panel, Button } from '../components/Panel.jsx'
 import { WaveCanvas } from '../simulations/WaveCanvas.jsx'
 
 const STEPS = [
-  { id: 'tectonica', label: 'Contexto tectónico', desc: 'Origen de la energía sísmica' },
-  { id: 'ondas', label: 'Ondas mecánicas', desc: 'Propagación de la energía' },
+  { id: 'tectonica', label: 'Contexto tectónico y ondas', desc: 'Origen y propagación de la energía' },
   { id: 'suelo', label: 'Medios y efectos de sitio', desc: 'El suelo transforma la señal' },
   { id: 'laboratorio', label: 'Laboratorio masa-resorte', desc: 'Mide y experimenta' },
   { id: 'mitigacion', label: 'Mitigación estructural', desc: 'La estructura responde' },

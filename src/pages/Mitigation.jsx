@@ -23,6 +23,26 @@ export function Mitigation() {
         </p>
       </Panel>
 
+      <Panel eyebrow="TRANSFERENCIA DE ENERGÍA" title="De la onda al movimiento de la estructura">
+        <div className="energy-explainer">
+          <div className="energy-stage" aria-hidden="true">
+            <div className="ground-line" />
+            <span className="wave-pulse wave-one" />
+            <span className="wave-pulse wave-two" />
+            <span className="wave-pulse wave-three" />
+            <div className="energy-building">
+              <i /><i /><i /><i />
+            </div>
+            <span className="energy-orb orb-one" /><span className="energy-orb orb-two" /><span className="energy-orb orb-three" />
+          </div>
+          <div className="energy-copy">
+            <div><span>1</span><p><strong>Energía cinética.</strong> El suelo acelera de un lado a otro y transmite movimiento a la base del edificio.</p></div>
+            <div><span>2</span><p><strong>Respuesta dinámica.</strong> Por inercia, cada masa intenta conservar su posición. Aparecen fuerzas internas, deformación y deriva entre pisos.</p></div>
+            <div><span>3</span><p><strong>Disipación y control.</strong> La rigidez almacena parte de la energía como energía elástica; el amortiguamiento y los disipadores convierten parte en calor y reducen la vibración.</p></div>
+          </div>
+        </div>
+      </Panel>
+
       <Panel
         eyebrow="SIMULACIÓN"
         title="Modelo realista de pórtico de cortante con excitación sísmica"
@@ -110,6 +130,24 @@ export function Mitigation() {
         .controls-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 16px; }
         .stats-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px; }
         .caption { font-size: 13px; color: var(--ink-1); margin-top: 14px; }
+        .energy-explainer { display: grid; grid-template-columns: .85fr 1.15fr; gap: 22px; align-items: center; }
+        .energy-stage { min-height: 240px; position: relative; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius-m); background: linear-gradient(180deg, #1d2730 0 70%, #141a20 70%); }
+        .ground-line { position: absolute; left: 0; right: 0; bottom: 54px; height: 7px; background: #56616b; box-shadow: 0 4px 0 #303941; animation: ground-shift 1.4s ease-in-out infinite alternate; }
+        .wave-pulse { position: absolute; bottom: 43px; width: 26px; height: 26px; border: 2px solid rgba(183, 142, 97, .8); border-radius: 50%; animation: wave-travel 2.4s linear infinite; }
+        .wave-two { animation-delay: .8s; } .wave-three { animation-delay: 1.6s; }
+        .energy-building { position: absolute; right: 22%; bottom: 61px; width: 84px; height: 142px; border: 4px solid #c6b496; border-bottom: 0; display: flex; flex-direction: column; justify-content: space-evenly; animation: building-sway 1.4s ease-in-out infinite alternate; transform-origin: bottom center; }
+        .energy-building::before, .energy-building::after { content: ''; position: absolute; inset: 0 auto 0 20px; width: 3px; background: #c6b496; } .energy-building::after { left: auto; right: 20px; }
+        .energy-building i { display: block; height: 3px; background: #c6b496; }
+        .energy-orb { position: absolute; right: 7%; width: 10px; height: 10px; border-radius: 50%; background: var(--amber); box-shadow: 0 0 12px var(--amber); animation: energy-rise 1.8s ease-in infinite; }
+        .orb-one { bottom: 88px; } .orb-two { bottom: 128px; animation-delay: .55s; } .orb-three { bottom: 168px; animation-delay: 1.1s; }
+        .energy-copy { display: grid; gap: 11px; }
+        .energy-copy > div { display: grid; grid-template-columns: 27px 1fr; gap: 10px; align-items: start; padding: 10px 12px; border: 1px solid var(--line-soft); border-radius: var(--radius-s); background: var(--bg-1); }
+        .energy-copy span { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: var(--amber-dim); color: var(--amber); font-family: var(--font-mono); font-size: 12px; }
+        .energy-copy p { color: var(--ink-1); font-size: 12.5px; line-height: 1.5; } .energy-copy strong { color: var(--ink-0); }
+        @keyframes ground-shift { from { transform: translateX(-8px); } to { transform: translateX(8px); } }
+        @keyframes building-sway { from { transform: rotate(-2.3deg); } to { transform: rotate(2.3deg); } }
+        @keyframes wave-travel { from { left: -30px; opacity: 0; transform: scale(.35); } 20% { opacity: 1; } to { left: 72%; opacity: 0; transform: scale(2.2); } }
+        @keyframes energy-rise { 0% { transform: translate(-10px, 14px) scale(.4); opacity: 0; } 35% { opacity: 1; } 100% { transform: translate(8px, -28px) scale(1.2); opacity: 0; } }
         .system-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
         .system-card { background: var(--bg-1); border: 1px solid var(--line); border-radius: var(--radius-m); padding: 16px; }
         .system-card[data-active="true"] { border-color: var(--cyan); }
@@ -123,7 +161,7 @@ export function Mitigation() {
         .footnote { font-size: 12px; color: var(--ink-2); }
 
         @media (max-width: 900px) {
-          .controls-row { grid-template-columns: 1fr; }
+          .controls-row, .energy-explainer { grid-template-columns: 1fr; }
           .system-grid { grid-template-columns: 1fr; }
         }
       `}</style>

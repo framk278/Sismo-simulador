@@ -4,22 +4,22 @@ import { Sidebar } from './components/Sidebar.jsx'
 import { Topbar } from './components/Topbar.jsx'
 import { Home } from './pages/Home.jsx'
 import { Tectonics } from './pages/Tectonics.jsx'
-import { Waves } from './pages/Waves.jsx'
 import { SiteEffects } from './pages/SiteEffects.jsx'
 import { Mitigation } from './pages/Mitigation.jsx'
 import { MassSpringLab } from './pages/MassSpringLab.jsx'
 import { SeismicSimulator } from './pages/SeismicSimulator.jsx'
 import { Conclusions } from './pages/Conclusions.jsx'
+import { References } from './pages/References.jsx'
 
 const PAGE_META = {
   inicio: { title: 'Sismolab', subtitle: 'Laboratorio virtual de ingeniería sísmica' },
   tectonica: { title: 'Contexto tectónico', subtitle: 'De dónde proviene la energía sísmica' },
-  ondas: { title: 'Ondas mecánicas', subtitle: 'Propagación de la energía sísmica' },
   suelo: { title: 'Medios y efectos de sitio', subtitle: 'El suelo transforma la señal sísmica' },
   mitigacion: { title: 'Mitigación estructural', subtitle: 'Cómo responde una estructura y cómo controlarla' },
   laboratorio: { title: 'Laboratorio masa-resorte', subtitle: 'Mide período, frecuencia y amortiguamiento' },
   simulador: { title: 'Simulador sísmico', subtitle: 'Integra suelo, estructura y sistema de mitigación' },
   conclusiones: { title: 'Conclusiones', subtitle: 'Síntesis del laboratorio virtual' },
+  referencias: { title: 'Referencias', subtitle: 'Fuentes bibliográficas y técnicas' },
 }
 
 function Shell() {
@@ -37,8 +37,6 @@ function Shell() {
         return <Home onNavigate={setPage} />
       case 'tectonica':
         return <Tectonics />
-      case 'ondas':
-        return <Waves />
       case 'suelo':
         return <SiteEffects />
       case 'mitigacion':
@@ -49,6 +47,8 @@ function Shell() {
         return <SeismicSimulator />
       case 'conclusiones':
         return <Conclusions onNavigate={setPage} />
+      case 'referencias':
+        return <References />
       default:
         return <Home onNavigate={setPage} />
     }

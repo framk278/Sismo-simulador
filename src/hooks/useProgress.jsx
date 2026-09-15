@@ -3,12 +3,12 @@ import { createContext, useContext, useMemo, useState, useCallback } from 'react
 const SECTIONS = [
   'inicio',
   'tectonica',
-  'ondas',
   'suelo',
   'mitigacion',
   'laboratorio',
   'simulador',
   'conclusiones',
+  'referencias',
 ]
 
 const ProgressContext = createContext(null)
