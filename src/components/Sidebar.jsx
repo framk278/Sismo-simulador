@@ -5,8 +5,8 @@ const NAV = [
   { id: 'tectonica', label: 'Contexto tectónico', icon: '02' },
   { id: 'ondas', label: 'Ondas mecánicas', icon: '03' },
   { id: 'suelo', label: 'Medios y efectos de sitio', icon: '04' },
-  { id: 'mitigacion', label: 'Mitigación estructural', icon: '05' },
-  { id: 'laboratorio', label: 'Laboratorio masa-resorte', icon: '06' },
+  { id: 'laboratorio', label: 'Laboratorio masa-resorte', icon: '05' },
+  { id: 'mitigacion', label: 'Mitigación estructural', icon: '06' },
   { id: 'simulador', label: 'Simulador sísmico', icon: '07' },
   { id: 'conclusiones', label: 'Conclusiones', icon: '08' },
 ]

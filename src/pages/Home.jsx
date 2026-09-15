@@ -6,8 +6,8 @@ const STEPS = [
   { id: 'tectonica', label: 'Contexto tectónico', desc: 'Origen de la energía sísmica' },
   { id: 'ondas', label: 'Ondas mecánicas', desc: 'Propagación de la energía' },
   { id: 'suelo', label: 'Medios y efectos de sitio', desc: 'El suelo transforma la señal' },
-  { id: 'mitigacion', label: 'Mitigación estructural', desc: 'La estructura responde' },
   { id: 'laboratorio', label: 'Laboratorio masa-resorte', desc: 'Mide y experimenta' },
+  { id: 'mitigacion', label: 'Mitigación estructural', desc: 'La estructura responde' },
   { id: 'simulador', label: 'Simulador sísmico', desc: 'Integra todo lo aprendido' },
 ]
 

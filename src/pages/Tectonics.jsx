@@ -3,6 +3,7 @@ import { Panel, Pill, Button } from '../components/Panel.jsx'
 import { PlateAnimation } from '../simulations/PlateAnimation.jsx'
 import { HypocenterDiagram } from '../simulations/SeismicConceptDiagrams.jsx'
 import { RegionalEventMap } from '../simulations/TectonicMaps.jsx'
+import { Waves } from './Waves.jsx'
 import { BOUNDARY_TYPES, RING_OF_FIRE_COUNTRIES, COLOMBIA_VENEZUELA, REGIONAL_EARTHQUAKES } from '../data/tectonics.js'
 import accumulationImage from '../assets/seismic-references/acumulacion.jpeg'
 import deformationImage from '../assets/seismic-references/deformacion.jpeg'
@@ -30,6 +31,31 @@ export function Tectonics() {
 
   return (
     <div className="stack">
+      <Panel eyebrow="CINTURÓN DE FUEGO" title="Arco sísmico y volcánico del Pacífico">
+        <p className="caption" style={{ marginBottom: 12 }}>
+          El Cinturón de Fuego concentra la mayor parte de la sismicidad y el vulcanismo del planeta.
+          Sigue fosas de subducción y arcos de islas alrededor del Pacífico. Explora los puntos de
+          referencia para relacionar cada país con su contexto tectónico.
+        </p>
+        <figure className="reference-figure fire-ring-reference">
+          <img src={fireRingImage} alt="Mapa de referencia del Cinturón de Fuego del Pacífico" />
+          <figcaption>El Cinturón de Fuego se distribuye alrededor de los márgenes del océano Pacífico.</figcaption>
+        </figure>
+        <div className="ring-layout">
+          <div className="ring-countries">
+            {RING_OF_FIRE_COUNTRIES.map((c) => (
+              <button key={c.id} className={`ring-country ${country.id === c.id ? 'active' : ''}`} onClick={() => setCountry(c)}>
+                {c.name}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div className="country-card">
+          <strong>{country.name}</strong>
+          <p>{country.note}</p>
+        </div>
+      </Panel>
+
       <Panel eyebrow="ORIGEN" title="¿De dónde viene la energía de un terremoto?">
         <div className="energy-grid">
           {[
@@ -88,30 +114,7 @@ export function Tectonics() {
         <p className="caption">{activeBoundary.description} <span className="ink-2">· Ej.: {activeBoundary.example}</span></p>
       </Panel>
 
-      <Panel eyebrow="CINTURÓN DE FUEGO" title="Arco sísmico y volcánico del Pacífico">
-        <p className="caption" style={{ marginBottom: 12 }}>
-          El Cinturón de Fuego concentra la mayor parte de la sismicidad y el vulcanismo del planeta.
-          Sigue fosas de subducción y arcos de islas alrededor del Pacífico. Explora los puntos de
-          referencia para relacionar cada país con su contexto tectónico.
-        </p>
-        <figure className="reference-figure fire-ring-reference">
-          <img src={fireRingImage} alt="Mapa de referencia del Cinturón de Fuego del Pacífico" />
-          <figcaption>El Cinturón de Fuego se distribuye alrededor de los márgenes del océano Pacífico.</figcaption>
-        </figure>
-        <div className="ring-layout">
-          <div className="ring-countries">
-            {RING_OF_FIRE_COUNTRIES.map((c) => (
-              <button key={c.id} className={`ring-country ${country.id === c.id ? 'active' : ''}`} onClick={() => setCountry(c)}>
-                {c.name}
-              </button>
-            ))}
-          </div>
-        </div>
-        <div className="country-card">
-          <strong>{country.name}</strong>
-          <p>{country.note}</p>
-        </div>
-      </Panel>
+      <Waves />
 
       <Panel eyebrow="CONTEXTO REGIONAL" title="Colombia y Venezuela: eventos de referencia">
         <p className="caption" style={{ marginBottom: 12 }}>Selecciona un país para abrir su propia información y visualizar el epicentro y las zonas destacadas por afectación.</p>
