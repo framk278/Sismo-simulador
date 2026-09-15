@@ -132,7 +132,7 @@ export function MassSpringLab() {
           <span className="details-hint">Abrir</span>
         </summary>
         <div className="source-graphs-content">
-          <p className="source-graphs-note">Gráficas recreadas con los 10 registros de <em>Lab 1 Física Gráficas.xlsx</em>.</p>
+          
           <div className="source-chart-grid">
             <Panel eyebrow="LEY DE HOOKE" title="Fuerza del resorte vs. elongación">
               <ResponsiveContainer width="100%" height={230}>

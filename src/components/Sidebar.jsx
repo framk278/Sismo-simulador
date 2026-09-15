@@ -1,4 +1,5 @@
 import { useProgress } from '../hooks/useProgress.jsx'
+import andinaLogo from '../assets/seismic-references/images.jpg'
 
 const NAV = [
   { id: 'inicio', label: 'Inicio', icon: '01' },
@@ -12,7 +13,7 @@ const NAV = [
 ]
 
 export function Sidebar({ current, onNavigate, open, onClose }) {
-  const { visited, stats } = useProgress()
+  const { visited } = useProgress()
 
   return (
     <>
@@ -20,8 +21,8 @@ export function Sidebar({ current, onNavigate, open, onClose }) {
       <nav className={`sidebar ${open ? 'open' : ''}`}>
         <div className="brand">
           <div>
-            <div className="brand-name">Sismolab</div>
-            <div className="brand-sub">Laboratorio virtual</div>
+            <img className="brand-logo" src={andinaLogo} alt="Andina" />
+           
           </div>
         </div>
 
@@ -43,15 +44,6 @@ export function Sidebar({ current, onNavigate, open, onClose }) {
           ))}
         </div>
 
-        <div className="sidebar-foot">
-          <div className="foot-row">
-            <span>Progreso</span>
-            <span className="readout">{stats.sectionProgress}%</span>
-          </div>
-          <div className="foot-bar">
-            <div className="foot-bar-fill" style={{ width: `${stats.sectionProgress}%` }} />
-          </div>
-        </div>
       </nav>
 
       <style>{`
@@ -88,7 +80,7 @@ export function Sidebar({ current, onNavigate, open, onClose }) {
           object-fit: contain;
           flex-shrink: 0;
         }
-        .brand-name { font-weight: 700; font-size: 15px; }
+        .brand-logo { display: block; width: 46px; height: 46px; object-fit: cover; border-radius: 8px; margin-bottom: 5px; }
         .brand-sub { font-size: 11px; color: var(--ink-2); }
         .nav-list {
           flex: 1;
@@ -120,29 +112,6 @@ export function Sidebar({ current, onNavigate, open, onClose }) {
         .nav-item[data-active="true"] .nav-icon { color: var(--amber); }
         .nav-label { flex: 1; }
         .nav-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--green); }
-        .sidebar-foot {
-          padding: 16px 18px 20px;
-          border-top: 1px solid var(--line);
-        }
-        .foot-row {
-          display: flex;
-          justify-content: space-between;
-          font-size: 12px;
-          color: var(--ink-1);
-          margin-bottom: 6px;
-        }
-        .foot-bar {
-          height: 5px;
-          background: var(--bg-3);
-          border-radius: 3px;
-          overflow: hidden;
-        }
-        .foot-bar-fill {
-          height: 100%;
-          background: var(--amber);
-          transition: width .4s ease;
-        }
-
         @media (max-width: 900px) {
           .sidebar {
             position: fixed;
