@@ -7,6 +7,7 @@ const SECTIONS = [
   'mitigacion',
   'laboratorio',
   'simulador',
+  'propuesta',
   'conclusiones',
   'referencias',
 ]

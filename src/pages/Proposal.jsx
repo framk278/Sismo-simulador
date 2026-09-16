@@ -15,6 +15,14 @@ export function Proposal() {
             Es una hipótesis educativa: su uso real exige ensayos de material, validación estructural
             y cumplimiento de la normativa aplicable.
           </p>
+          <a
+            className="proposal-link"
+            href="https://canva.link/ch6kk1u9s1ixhsk"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Ver material complementario de la propuesta en Canva
+          </a>
         </div>
         <figure className="reference-figure pet-reference">
           <img src={petBrickReference} alt="Infografía sobre ladrillos de cemento con plástico reciclado" />
@@ -26,6 +34,8 @@ export function Proposal() {
         .pet-layout { display: grid; grid-template-columns: .9fr 1.1fr; gap: 18px; align-items: center; }
         .lead { color: var(--ink-1); font-size: 13.5px; margin-bottom: 14px; max-width: 62ch; }
         .caption { font-size: 13px; color: var(--ink-1); margin-top: 14px; }
+        .proposal-link { display: inline-block; margin-top: 4px; color: var(--amber); font-size: 13px; }
+        .proposal-link:hover { color: var(--ink-0); }
         .reference-figure { margin: 16px 0 0; }
         .pet-reference { margin: 0; }
         .reference-figure img { width: 100%; display: block; border: 1px solid var(--line); border-radius: var(--radius-m); background: #fff; }
