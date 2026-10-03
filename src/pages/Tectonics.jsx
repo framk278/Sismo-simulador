@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Panel, Pill, Button } from '../components/Panel.jsx'
 import { PlateAnimation } from '../simulations/PlateAnimation.jsx'
 import { HypocenterDiagram } from '../simulations/SeismicConceptDiagrams.jsx'
+import { RingOfFireVisual } from '../simulations/RingOfFireVisual.jsx'
 import { RegionalEventMap } from '../simulations/TectonicMaps.jsx'
 import { Waves } from './Waves.jsx'
 import { BOUNDARY_TYPES, RING_OF_FIRE_COUNTRIES, COLOMBIA_VENEZUELA, REGIONAL_EARTHQUAKES } from '../data/tectonics.js'
@@ -51,8 +52,13 @@ export function Tectonics() {
           </div>
         </div>
         <div className="country-card">
-          <strong>{country.name}</strong>
-          <p>{country.note}</p>
+          <div className="country-detail">
+            <div>
+              <strong>{country.name}</strong>
+              <p>{country.note}</p>
+            </div>
+            <RingOfFireVisual country={country} />
+          </div>
         </div>
       </Panel>
 
@@ -156,6 +162,10 @@ export function Tectonics() {
         .ink-2 { color: var(--ink-2); }
         .country-card { margin-top: 4px; background: var(--bg-1); border: 1px solid var(--line); border-radius: var(--radius-m); padding: 14px; }
         .country-card p { font-size: 13px; color: var(--ink-1); margin-top: 4px; }
+        .country-detail { display: grid; grid-template-columns: .72fr 1.28fr; gap: 16px; align-items: center; }
+        .ring-visual { margin: 0; }
+        .ring-visual svg { display: block; width: 100%; border: 1px solid var(--line); border-radius: var(--radius-m); }
+        .ring-visual figcaption { margin-top: 6px; font-size: 11.5px; color: var(--ink-2); }
         .fire-ring-reference { margin-bottom: 14px; background: #fff; border-radius: var(--radius-m); overflow: hidden; }
         .fire-ring-reference img { max-height: 390px; object-fit: contain; }
         .fire-ring-reference figcaption { padding: 0 10px 9px; }
@@ -182,7 +192,7 @@ export function Tectonics() {
 
         @media (max-width: 900px) {
           .energy-grid { grid-template-columns: 1fr 1fr; }
-          .hypocenter-layout, .plate-layout, .regional-layout, .ring-layout { grid-template-columns: 1fr; }
+          .hypocenter-layout, .plate-layout, .regional-layout, .ring-layout, .country-detail { grid-template-columns: 1fr; }
         }
         @media (max-width: 560px) {
           .energy-grid { grid-template-columns: 1fr; }
