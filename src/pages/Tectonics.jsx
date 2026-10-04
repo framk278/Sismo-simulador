@@ -16,6 +16,8 @@ import convergentImage from '../assets/seismic-references/covergente.jpeg'
 import divergentImage from '../assets/seismic-references/Divergente.jpeg'
 import transformImage from '../assets/seismic-references/Tranformate.jpeg'
 import fireRingImage from '../assets/seismic-references/Cinturon.jpg'
+import colombiaContextImage from '../assets/seismic-references/contexto-colombia.png'
+import venezuelaContextImage from '../assets/seismic-references/contexto-venezuela.png'
 
 const BOUNDARY_IMAGES = {
   convergente: convergentImage,
@@ -135,6 +137,10 @@ export function Tectonics() {
         <div className="regional-layout">
           <div className="regional-visual-stack">
             <RegionalTectonicVisual country={regionalCountry} />
+            <figure className="reference-figure regional-reference">
+              <img src={regionalCountry === 'colombia' ? colombiaContextImage : venezuelaContextImage} alt={`Mapa geológico de ${regionalCountry === 'colombia' ? 'Colombia' : 'Venezuela'}`} />
+              <figcaption>Mapa guía: placas, fallas principales y contexto geológico regional.</figcaption>
+            </figure>
             <RegionalEventMap country={regionalCountry} event={REGIONAL_EARTHQUAKES[regionalCountry]} />
           </div>
           <div className="region-card">
@@ -169,6 +175,8 @@ export function Tectonics() {
         .country-detail { display: grid; grid-template-columns: .72fr 1.28fr; gap: 16px; align-items: center; }
         .ring-visual { margin: 0; }
         .ring-visual svg { display: block; width: 100%; border: 1px solid var(--line); border-radius: var(--radius-m); }
+        .country-photo { min-height: 230px; display: flex; flex-direction: column; justify-content: flex-end; padding: 18px; border-radius: var(--radius-m); border: 1px solid var(--line); background-size: cover; background-position: center; color: #fff; }
+        .country-photo span { font-size: 22px; font-weight: 700; text-shadow: 0 2px 12px #000; }.country-photo small { font-size: 12px; color: #e1edf0; }
         .ring-visual figcaption { margin-top: 6px; font-size: 11.5px; color: var(--ink-2); }
         .fire-ring-reference { margin-bottom: 14px; background: #fff; border-radius: var(--radius-m); overflow: hidden; }
         .fire-ring-reference img { max-height: 390px; object-fit: contain; }
@@ -180,6 +188,7 @@ export function Tectonics() {
         .regional-layout { display: grid; grid-template-columns: 1.25fr .75fr; gap: 14px; align-items: stretch; }
         .regional-visual-stack { display: grid; gap: 12px; }
         .regional-tectonic-visual { display: block; width: 100%; border-radius: var(--radius-m); border: 1px solid var(--line); }
+        .regional-reference img { max-height: 520px; object-fit: contain; background: #06101a; }
         .hypocenter-layout { display: grid; grid-template-columns: .75fr 1.25fr; gap: 18px; align-items: center; }
         .concept-visuals { display: grid; gap: 12px; }
         .plate-layout { display: grid; grid-template-columns: 1.3fr .7fr; gap: 14px; align-items: center; }

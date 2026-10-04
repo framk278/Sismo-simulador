@@ -45,6 +45,41 @@ export function WaveTypeAnimation({ type = 'p', color = '#7a8b9a', running = tru
       ctx.stroke()
       ctx.setLineDash([])
 
+      if (type === 'love') {
+        const bands = 7
+        const lines = 21
+        const top = 32
+        const bandH = (h - 72) / bands
+        ctx.fillStyle = '#160b20'
+        ctx.fillRect(0, 0, w, h)
+        for (let row = 0; row <= bands; row++) {
+          ctx.beginPath()
+          for (let col = 0; col <= lines; col++) {
+            const x = col * w / lines
+            const phase = x * .05 - t * 2.1
+            const y = top + row * bandH + Math.sin(phase) * 12 * (1 - row / (bands + 2))
+            if (col === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y)
+          }
+          ctx.strokeStyle = '#d33ee8'; ctx.lineWidth = 1.25; ctx.stroke()
+        }
+        for (let col = 0; col <= lines; col++) {
+          ctx.beginPath()
+          for (let row = 0; row <= bands; row++) {
+            const x0 = col * w / lines
+            const phase = x0 * .05 - t * 2.1
+            const x = x0 + Math.sin(phase) * 7 * (1 - row / (bands + 2))
+            const y = top + row * bandH + Math.sin(phase) * 12 * (1 - row / (bands + 2))
+            if (row === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y)
+          }
+          ctx.strokeStyle = '#9621b8'; ctx.lineWidth = 1; ctx.stroke()
+        }
+        ctx.fillStyle = '#f0b7ff'; ctx.font = '11px "JetBrains Mono", monospace'
+        ctx.fillText('onda Love · corte horizontal transversal · sin componente vertical', 10, 18)
+        ctx.fillText('propagación →', 10, h - 12)
+        raf = requestAnimationFrame(draw)
+        return
+      }
+
       for (let r = 0; r < rows; r++) {
         for (let c = 0; c < cols; c++) {
           const restX = (c + 1) * gx
@@ -79,14 +114,6 @@ export function WaveTypeAnimation({ type = 'p', color = '#7a8b9a', running = tru
           ctx.fillStyle = color
           ctx.fill()
         }
-      }
-
-      if (type === 'love') {
-        ctx.fillStyle = 'rgba(125, 143, 122, .13)'
-        ctx.fillRect(0, 0, w, h)
-        ctx.fillStyle = '#aab7a5'
-        ctx.font = '11px "JetBrains Mono", monospace'
-        ctx.fillText('vista superior: desplazamiento horizontal transversal (N-S)', 10, 18)
       }
 
       ctx.fillStyle = '#6f6b64'
