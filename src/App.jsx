@@ -11,10 +11,12 @@ import { MassSpringLab } from './pages/MassSpringLab.jsx'
 import { SeismicSimulator } from './pages/SeismicSimulator.jsx'
 import { Conclusions } from './pages/Conclusions.jsx'
 import { References } from './pages/References.jsx'
+import { FrequencyTime } from './pages/FrequencyTime.jsx'
 
 const PAGE_META = {
   inicio: { title: 'Sismolab', subtitle: 'Laboratorio virtual de ingeniería sísmica' },
   tectonica: { title: 'Contexto tectónico', subtitle: 'De dónde proviene la energía sísmica' },
+  frecuencia: { title: 'Frecuencia y período', subtitle: 'Componentes físicos de las ondas' },
   suelo: { title: 'Medios y efectos de sitio', subtitle: 'El suelo transforma la señal sísmica' },
   propuesta: { title: 'Propuesta: ladrillo PET', subtitle: 'Alternativa educativa para redistribuir vibraciones' },
   mitigacion: { title: 'Mitigación estructural', subtitle: 'Cómo responde una estructura y cómo controlarla' },
@@ -39,6 +41,8 @@ function Shell() {
         return <Home onNavigate={setPage} />
       case 'tectonica':
         return <Tectonics />
+      case 'frecuencia':
+        return <FrequencyTime />
       case 'suelo':
         return <SiteEffects />
       case 'propuesta':

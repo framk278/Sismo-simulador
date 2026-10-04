@@ -3,6 +3,7 @@ import { Panel, Pill, Button } from '../components/Panel.jsx'
 import { PlateAnimation } from '../simulations/PlateAnimation.jsx'
 import { HypocenterDiagram } from '../simulations/SeismicConceptDiagrams.jsx'
 import { RingOfFireVisual } from '../simulations/RingOfFireVisual.jsx'
+import { RegionalTectonicVisual } from '../simulations/RegionalTectonicVisual.jsx'
 import { RegionalEventMap } from '../simulations/TectonicMaps.jsx'
 import { Waves } from './Waves.jsx'
 import { BOUNDARY_TYPES, RING_OF_FIRE_COUNTRIES, COLOMBIA_VENEZUELA, REGIONAL_EARTHQUAKES } from '../data/tectonics.js'
@@ -132,7 +133,10 @@ export function Tectonics() {
           ))}
         </div>
         <div className="regional-layout">
-          <RegionalEventMap country={regionalCountry} event={REGIONAL_EARTHQUAKES[regionalCountry]} />
+          <div className="regional-visual-stack">
+            <RegionalTectonicVisual country={regionalCountry} />
+            <RegionalEventMap country={regionalCountry} event={REGIONAL_EARTHQUAKES[regionalCountry]} />
+          </div>
           <div className="region-card">
             <span className="event-kicker">EVENTO DE REFERENCIA</span>
             <strong>{REGIONAL_EARTHQUAKES[regionalCountry].title}</strong>
@@ -174,6 +178,8 @@ export function Tectonics() {
         .ring-country { border: 1px solid var(--line); border-radius: var(--radius-s); background: var(--bg-1); color: var(--ink-1); padding: 10px 8px; font-size: 12px; text-align: left; }
         .ring-country:hover, .ring-country.active { border-color: var(--amber); background: var(--amber-dim); color: var(--ink-0); }
         .regional-layout { display: grid; grid-template-columns: 1.25fr .75fr; gap: 14px; align-items: stretch; }
+        .regional-visual-stack { display: grid; gap: 12px; }
+        .regional-tectonic-visual { display: block; width: 100%; border-radius: var(--radius-m); border: 1px solid var(--line); }
         .hypocenter-layout { display: grid; grid-template-columns: .75fr 1.25fr; gap: 18px; align-items: center; }
         .concept-visuals { display: grid; gap: 12px; }
         .plate-layout { display: grid; grid-template-columns: 1.3fr .7fr; gap: 14px; align-items: center; }

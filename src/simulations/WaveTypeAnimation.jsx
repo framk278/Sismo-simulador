@@ -31,7 +31,7 @@ export function WaveTypeAnimation({ type = 'p', color = '#7a8b9a', running = tru
       ctx.clearRect(0, 0, w, h)
 
       const cols = Math.floor(w / 18)
-      const rows = type === 'love' || type === 'p' ? 5 : 4
+      const rows = type === 'love' ? 6 : type === 'p' ? 5 : 4
       const gx = w / (cols + 1)
       const gy = h / (rows + 1.6)
       const amp = 11
@@ -58,7 +58,11 @@ export function WaveTypeAnimation({ type = 'p', color = '#7a8b9a', running = tru
           } else if (type === 's') {
             py = restY + amp * Math.sin(phase)
           } else if (type === 'love') {
-            px = restX + amp * 0.85 * Math.sin(phase)
+            // Love: corte HORIZONTAL transversal. En esta vista superior la
+            // propagación va de izquierda a derecha y las partículas se mueven
+            // norte-sur (arriba-abajo en pantalla), nunca verticalmente.
+            const depth = r / Math.max(1, rows - 1)
+            py = restY + amp * (1 - depth * 0.72) * Math.sin(phase)
           } else {
             const depth = r / (rows - 1)
             px = restX + amp * 0.55 * (1 - depth * 0.45) * Math.cos(phase)
@@ -77,9 +81,17 @@ export function WaveTypeAnimation({ type = 'p', color = '#7a8b9a', running = tru
         }
       }
 
+      if (type === 'love') {
+        ctx.fillStyle = 'rgba(125, 143, 122, .13)'
+        ctx.fillRect(0, 0, w, h)
+        ctx.fillStyle = '#aab7a5'
+        ctx.font = '11px "JetBrains Mono", monospace'
+        ctx.fillText('vista superior: desplazamiento horizontal transversal (N-S)', 10, 18)
+      }
+
       ctx.fillStyle = '#6f6b64'
       ctx.font = '11px "JetBrains Mono", monospace'
-      ctx.fillText('dirección de propagación', 10, h - 12)
+      ctx.fillText('dirección de propagación →', 10, h - 12)
 
       raf = requestAnimationFrame(draw)
     }
